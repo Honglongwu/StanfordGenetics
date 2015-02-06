@@ -14,5 +14,5 @@ N = 0
 for k in D:
     ouFile.write(k +'\t' + str(len(set(D[k]))) + '\n')
     N += len(set(D[k]))
-    ouFile.write('total:\t' + str(N) + '\n')
+ouFile.write('total:\t' + str(N) + '\n')
 ouFile.close()

@@ -1,3 +1,4 @@
+#inFile = open('ESP-snp-indels-rare')
 inFile = open('ESP-snp-indels')
 #inFile = open('NGLY1-ESP-snp-indels')
 #ouFile = open('NGLY1-ESP-snp-indels-Count', 'w')

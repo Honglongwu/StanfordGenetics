@@ -1,6 +1,6 @@
-#inFile = open('TCGA-Cosmic')
-inFile = open('TCGA-Cosmic-part')
-ouFile = open('TCGA-Cosmic-endometrium-nonsense', 'w')
+inFile = open('TCGA-Cosmic')
+ouFile = open('TCGA-Sample-NonStopGain', 'w')
+ouFile2 = open('TCGA-Sample-NonStopGain-Cancer', 'w')
 D = {}
 for line in inFile:
     line = line.strip()
@@ -16,11 +16,14 @@ for line in inFile:
         D[cancer][sample].append(gene)
 inFile.close()
 
-'''
 for cancer in D:
-    for sample in D[cancer]:
-        print('\t'.join(set(D[cancer][sample])))
-'''
+    d = D[cancer].items()
+    ouFile2.write(cancer + '\t' + str(len(D[cancer])) + '\n')
+    d.sort(cmp = lambda x,y:cmp(len(set(x[1])), len(set(y[1]))), reverse = True)
+    for item in d:
+        ouFile.write(cancer + '\t' + item[0] + '\t' + str(len(set(item[1]))) +'\t' + '\t'.join(set(item[1])) + '\n')
+
+
 
 #d = D.items()
 #d.sort(cmp = lambda x,y:cmp(len(set(x[1])), len(set(y[1]))), reverse = True)
@@ -29,4 +32,5 @@ for cancer in D:
 #    ouFile.write(item[0] + '\t' + str(len(set(item[1]))) +'\t' + '\t'.join(set(item[1])) + '\n')
 
 ouFile.close()
+ouFile2.close()
 
