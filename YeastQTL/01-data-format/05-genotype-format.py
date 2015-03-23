@@ -55,7 +55,7 @@ def genotypeFormat(inF, c):
     ouFile.write('\n'.join(Position) + '\n')
     ouFile.close()
 
-genotypeFormat('Yeast-Genotype.tab', 'WA')
-genotypeFormat('Yeast-Genotype.tab', 'SA')
-genotypeFormat('Yeast-Genotype.tab', 'NA')
-genotypeFormat('Yeast-Genotype.tab', 'WE')
+genotypeFormat('Yeast-Genotype-noMissing.tab', 'WA')
+genotypeFormat('Yeast-Genotype-noMissing.tab', 'SA')
+genotypeFormat('Yeast-Genotype-noMissing.tab', 'NA')
+genotypeFormat('Yeast-Genotype-noMissing.tab', 'WE')

@@ -1,4 +1,7 @@
+import h5py
+import scipy as sp
 def g012tohdf5(g012_file):
+    hdf = h5py.File(g012_file.split('.012')[0] + '.hdf5', 'w')
     genotype = hdf.create_group('genotype')
     col_header = genotype.create_group('col_header')
     row_header = genotype.create_group('row_header')
@@ -17,4 +20,7 @@ def g012tohdf5(g012_file):
     snps = M[:,1::]
     genotype.create_dataset(name='matrix',data=snps,chunks=(snps.shape[0],min(10000,snps.shape[1])),compression='gzip')
 
-g012tohdf5('Yeast-Genotype-SA.012')
+g012tohdf5('Yeast-Genotype-noMissing-SA.012')
+g012tohdf5('Yeast-Genotype-noMissing-WA.012')
+g012tohdf5('Yeast-Genotype-noMissing-WE.012')
+g012tohdf5('Yeast-Genotype-noMissing-NA.012')

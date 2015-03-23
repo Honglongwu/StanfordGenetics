@@ -18,7 +18,7 @@ def cmp(upF, downF):
     ouFile = open(upF + '-ProbSetID', 'w')
     ouFile2 = open(upF + '-ProbSetID.grp', 'w')
     for line in inFile:
-        ensembl = line.strip()
+        ensembl = line.split('\t')[0]
         flag = 0
         for k in D:
             if ensembl in D[k]:
@@ -26,7 +26,7 @@ def cmp(upF, downF):
                 ouFile2.write(k + '\n')
                 flag = 1
         if flag == 0:
-            print(ensembl + '\t' + 'NA' + '\n')
+            print(ensembl)
     
     inFile.close()
     ouFile.close()
@@ -37,7 +37,7 @@ def cmp(upF, downF):
     ouFile = open(downF + '-ProbSetID', 'w')
     ouFile2 = open(downF + '-ProbSetID.grp', 'w')
     for line in inFile:
-        ensembl = line.strip()
+        ensembl = line.split('\t')[0]
         flag = 0
         for k in D:
             if ensembl in D[k]:
@@ -45,10 +45,11 @@ def cmp(upF, downF):
                 ouFile2.write(k + '\n')
                 flag = 1
         if flag == 0:
-            print.write(ensembl + '\t' + 'NA' + '\n')
+            print(ensembl)
     
     inFile.close()
     ouFile.close()
     ouFile2.close()
-cmp('de_CP1-B_MCP1-B.sig.up.txt', 'de_CP1-B_MCP1-B.sig.down.txt')
-cmp('de_CP3-B_Ctrl-B.sig.up.txt', 'de_CP3-B_Ctrl-B.sig.down.txt')
+cmp('HumanFibroblast-up.txt', 'HumanFibroblast-down.txt')
+cmp('HumanLymphoblast-up.txt', 'HumanLymphoblast-down.txt')
+cmp('HumanALL-up.txt', 'HumanALL-down.txt')

@@ -66,7 +66,7 @@ def phenotypeFormat(inF):
 
 def strainList():
     L = []
-    inFile = open('Yeast-Genotype.012.indv')
+    inFile = open('Yeast-Genotype-noMissing-SA.012.indv')
     for line in inFile:
         line = line.strip()
         L.append(line)
@@ -76,7 +76,7 @@ def strainList():
 def checkStrain():
     L1 = []
     L2 = []
-    inFile = open('Yeast-Genotype.012.indv')
+    inFile = open('Yeast-Genotype-noMissing-SA.012.indv')
     for line in inFile:
         line = line.strip()
         L1.append(line)
